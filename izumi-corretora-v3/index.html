@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izumi Corretora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar container">
+      <img src="IMG-20260428-WA0066.jpg" alt="Izumi Corretora" class="brand-logo" />
+      <a href="admin.html" class="admin-link">Administrador</a>
+    </nav>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <p class="eyebrow">Imóveis selecionados com cuidado</p>
+      <h1>Encontre o imóvel certo com atendimento direto e profissional.</h1>
+      <p class="hero-text">Catálogo moderno, informações claras e contato rápido por WhatsApp.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="filters-section container">
+      <div class="filters-card">
+        <div class="filter-group">
+          <label for="cityFilter">Cidade</label>
+          <input id="cityFilter" type="text" placeholder="Ex: Bragança Paulista" />
+        </div>
+        <div class="filter-group">
+          <label for="typeFilter">Tipo</label>
+          <select id="typeFilter">
+            <option value="">Todos</option>
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Terreno">Terreno</option>
+            <option value="Comercial">Comercial</option>
+            <option value="Chácara">Chácara</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="minPriceFilter">Preço mínimo</label>
+          <input id="minPriceFilter" type="number" min="0" placeholder="0" />
+        </div>
+        <div class="filter-group">
+          <label for="maxPriceFilter">Preço máximo</label>
+          <input id="maxPriceFilter" type="number" min="0" placeholder="1000000" />
+        </div>
+        <button id="clearFiltersBtn" class="secondary-btn">Limpar</button>
+      </div>
+    </section>
+
+    <section class="catalog container">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Catálogo</p>
+          <h2>Imóveis em destaque</h2>
+        </div>
+        <span id="resultCount" class="result-count">Carregando imóveis...</span>
+      </div>
+
+      <div id="loadingState" class="state-box">Carregando imóveis...</div>
+      <div id="emptyState" class="state-box hidden">Nenhum imóvel encontrado.</div>
+      <div id="propertyGrid" class="property-grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+  <a href="https://wa.me/5511945211203j" 
+   class="whatsapp-float" 
+   target="_blank">
+  💬
+</a>
+</body>
+</html>

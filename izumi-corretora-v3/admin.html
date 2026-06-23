@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador | Izumi Corretora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+</head>
+<body class="admin-body">
+  <main class="admin-page container">
+    <section id="loginCard" class="admin-card login-card">
+      <div>
+        <p class="section-label">Painel administrativo</p>
+        <h1>Entrar</h1>
+        <p class="muted">Faça login com o usuário criado no Firebase Authentication.</p>
+      </div>
+
+      <form id="loginForm" class="form-grid single-column">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="admin@izumi.com" />
+        </div>
+        <div class="field">
+          <label for="password">Senha</label>
+          <input id="password" type="password" required placeholder="Sua senha" />
+        </div>
+        <button type="submit" class="primary-btn">Entrar</button>
+        <p id="loginMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="admin-header">
+        <div>
+          <img src="IMG-20260428-WA0066.jpg" alt="Izumi Corretora" class="brand-logo" />
+          <h1>Painel do administrador</h1>
+        </div>
+        <div class="admin-actions">
+          <a href="index.html" class="secondary-btn">Ver site</a>
+          <button id="logoutBtn" class="danger-btn">Sair</button>
+        </div>
+      </div>
+
+      <section class="admin-card">
+        <div class="card-head">
+          <div>
+            <h2 id="formTitle">Novo imóvel</h2>
+            <p class="muted">Cadastre, edite e remova imóveis com fotos enviadas diretamente para o Cloudinary.</p>
+          </div>
+          <button id="resetFormBtn" class="secondary-btn hidden">Cancelar edição</button>
+        </div>
+
+        <form id="propertyForm" class="form-grid">
+          <input type="hidden" id="propertyId" />
+
+          <div class="field">
+            <label for="title">Título</label>
+            <input id="title" type="text" required placeholder="Casa térrea com varanda" />
+          </div>
+
+          <div class="field">
+            <label for="type">Tipo</label>
+            <select id="type" required>
+              <option value="">Selecione</option>
+              <option value="Casa">Casa</option>
+              <option value="Apartamento">Apartamento</option>
+              <option value="Terreno">Terreno</option>
+              <option value="Comercial">Comercial</option>
+              <option value="Chácara">Chácara</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="city">Cidade</label>
+            <input id="city" type="text" required placeholder="Bragança Paulista" />
+          </div>
+
+          <div class="field">
+            <label for="price">Preço</label>
+            <input id="price" type="number" min="0" required placeholder="650000" />
+          </div>
+
+          <div class="field">
+            <label for="bedrooms">Quartos</label>
+            <input id="bedrooms" type="number" min="0" placeholder="3" />
+          </div>
+
+          <div class="field">
+            <label for="bathrooms">Banheiros</label>
+            <input id="bathrooms" type="number" min="0" placeholder="2" />
+          </div>
+
+          <div class="field">
+            <label for="area">Área (m²)</label>
+            <input id="area" type="number" min="0" placeholder="120" />
+          </div>
+
+          <div class="field">
+            <label for="whatsappNumber">WhatsApp</label>
+            <input id="whatsappNumber" type="text" value="5511945211203" required placeholder="5511945211203" />
+          </div>
+
+          <div class="field full-width">
+            <label for="description">Descrição</label>
+            <textarea id="description" rows="5" placeholder="Detalhes do imóvel, localização, diferenciais..."></textarea>
+          </div>
+
+          <div class="field full-width">
+            <label>Fotos do imóvel</label>
+            <div class="upload-row">
+              <button type="button" id="uploadImagesBtn" class="primary-btn">Enviar fotos</button>
+              <span class="muted small">Upload direto pelo Cloudinary.</span>
+            </div>
+            <div id="uploadedImages" class="uploaded-images"></div>
+          </div>
+
+          <div class="full-width form-actions">
+            <button type="submit" class="primary-btn">Salvar imóvel</button>
+            <p id="formMessage" class="message"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <div class="card-head">
+          <div>
+            <h2>Imóveis cadastrados</h2>
+            <p class="muted">Gerencie tudo por aqui.</p>
+          </div>
+        </div>
+        <div id="adminPropertyList" class="admin-property-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
